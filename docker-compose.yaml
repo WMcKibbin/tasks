@@ -1,0 +1,14 @@
+services:
+  database:
+    image: postgres
+    container_name: tasks-database
+    restart: always
+    ports:
+      - ${DATABASE_PORT}:5432
+    environment:
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_DB=${DATABASE_NAME}
+volumes:
+  pgdata:
+    driver: local
